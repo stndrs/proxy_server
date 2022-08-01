@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  rathole:
+    container_name: rathole
+    image: rapiz1/rathole:latest
+    volumes:
+      - ./config.toml:/app/config.toml:ro
+    command: ["--server", "/app/config.toml"]
+    ports:
+      - "80:80"
+      - "443:443"
+      - "2224:2224"
+      - "2225:2225"
+      - "6900:6900"
+    restart: always
+
